@@ -57,10 +57,117 @@ footer{
     position:fixed;
     top:95vh; left:92vw;
 }
-/*change color of link when hovering over it*/
-/* a:hover{
+/*change color of link when hovering over it and when I click it*/
+a:hover{
     color:blue;
 }
 a:active{
     color:orange;
-} */
+}
+
+/*I want only the first section to be in a flexbox*/
+section.sec1{
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+/*I want this specific header to be centered as it is in the flexbox*/
+h2.attendance{
+    text-align: center;
+}
+
+/*I want to use the grid layout for section 2, so I parsed section 2 into 10 different parts, and will order them manually*/
+/*some subsections have the flex display so i can center them*/
+section.sec2{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 10px;
+    row-gap: 10px;
+}
+.item1{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    grid-column:1/4;
+    grid-row-start: 0;
+}
+.item2{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 1/1;
+    grid-row: 2/2;
+}
+.item3{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 1/1;
+    grid-row: 3/3;
+    text-align: center;
+}
+.item4{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 2/2;
+    grid-row: 2/2;
+    text-align: center;
+}
+.item5{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 2/2;
+    grid-row: 3/3;
+    text-align: center;
+}
+
+.item6{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 3/3;
+    grid-row: 2/2;
+    text-align: center;
+}
+
+.item7{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 3/3;
+    grid-row: 3/3;
+    text-align: center;
+}
+
+.item8{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 2/2;
+    grid-row: 4/4;
+    text-align: center;
+}
+
+.item9{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    grid-column: 1/1;
+    grid-row: 5/5;
+    text-align: center;
+}
+
+.item10{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    grid-column: 3/3;
+    grid-row: 5/5;
+    text-align: center;
+}
+
