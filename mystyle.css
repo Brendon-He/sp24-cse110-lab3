@@ -172,6 +172,15 @@ section.sec2{
     grid-row: 5/5;
     text-align: center;
 }
-
-
+/*images and videos will become smaller on smaller screens*/
+@media (width<=1000px) {
+    img{
+        height: 300px;
+        width: 300px;
+    }
+    video{
+        height:270px;
+        width:480px;
+    }
+  }
 
