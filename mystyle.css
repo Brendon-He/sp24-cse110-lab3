@@ -1,3 +1,21 @@
+/*importing the lora font*/
+@font-face {
+    font-family: 'lora-italic';
+    src: url('lora-italic-variablefont_wght-webfont.woff2') format('woff2'),
+         url('lora-italic-variablefont_wght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+ /*set the entire website to use lora italic*/ 
+*{
+    font-family: 'lora-italic';
+}
+
+@counter-style fallback-attempt {
+    system: fixed;
+    symbols: "-" "-" "-";
+    fallback: upper-alpha;
+  }
 /*add style to the main headers*/
 h1{
     border-radius: 10px;
@@ -19,29 +37,50 @@ h1{
 
     /*color:purple;*/
 }
+/*I want the first header to have a white outline instead of black*/
+header h1{
+    border-color:rgb(255, 255, 255);
+}
 
 /* add style to the sub headers(h2)*/
-h2{
+h2,h3{
     margin: 0.5cm 0em 0.5cm 0em;
     padding: 1mm 1em 0vh 1mm;
-    text-align:left;
+    text-align:center;
     text-decoration: underline;
 
 }
 /*The unordered list will have an inline block display so that we can have unordered lists next to each other, allowing for more people to be next to each other*/
 ul{
+    list-style: fallback-attempt;
     display:inline-block;
     min-width:5em;
-    max-width:30vw;/*more than 25 characters, go to next line*/
+    max-width:30vw;/*more than 30% of the screen, go to next line*/
     max-height: 100vh;
     position:static;
     right:10px;
+}
+/* people in the first list will have a different color than those in the second list*/
+ul+ul{
+    color:rgb(150, 50, 50)
+}
+
+/*all text within a div will be a different color, this only affects qna*/
+div > p{
+    color:rgb(70, 24, 24)
 }
 /*change the color of the bar separating sections*/
 hr{
     color: grey;
 }
-
+/*if h3 is being treated as a subheading, I want it to align to the left*/
+h2~h3{
+    text-align: left;
+}
+/*if a header is immediatly followed by a subheader, reduce the gap between them*/
+h2:has(+h3){
+    margin: 0 0 0.1rem 0;
+}
 /*ensure that items are shown one after anohter in an ordered list*/
 ol{
     display:block;
@@ -51,6 +90,10 @@ ol{
 /*each list item should have a height of atleast 1.5 of whatever font is used. This will allow for space inbetween each item*/
 li{
     min-height: 1.5em;
+    /*when hovering over an item in a list, it will turn green*/
+    &:hover{
+        color: rgb(17, 36, 17);
+    }
 }
 /*I want you to know I made this*/
 footer{
@@ -80,93 +123,79 @@ h2.attendance{
 
 /*I want to use the grid layout for section 2, so I parsed section 2 into 10 different parts, and will order them manually*/
 /*some subsections have the flex display so i can center them*/
+
+[id |="item"]{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
 section.sec2{
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 5vw;
+    column-gap: 1vw;
     row-gap: 5vh;
     grid-template-rows: auto auto auto auto auto;
 }
-.item1{
-    display:flex;
-    justify-content: center;
-    align-items: center;
+#item-1{
+
     grid-column:1/4;
     grid-row-start: 0;
 }
-.item2{
-    display:flex;
-    justify-content: center;
-    align-items: center;
+#item-2{
+
     grid-column: 1/1;
     grid-row: 2/2;
 }
-.item3{
-    display:flex;
-    justify-content: center;
-    align-items: center;
+#item-3{
+
     grid-column: 1/1;
     grid-row: 3/3;
     text-align: center;
 }
-.item4{
-    display:flex;
-    justify-content: center;
-    align-items: center;
+#item-4{
+
     grid-column: 2/2;
     grid-row: 2/2;
     text-align: center;
 }
-.item5{
-    display:flex;
-    justify-content: center;
-    align-items: center;
+#item-5{
+
     grid-column: 2/2;
     grid-row: 3/3;
     text-align: center;
 }
 
-.item6{
-    display:flex;
-    justify-content: center;
-    align-items: center;
+#item-6{
+
     grid-column: 3/3;
     grid-row: 2/2;
     text-align: center;
 }
 
-.item7{
-    display:flex;
-    justify-content: center;
-    align-items: center;
+#item-7{
+
     grid-column: 3/3;
     grid-row: 3/3;
     text-align: center;
 }
 
-.item8{
-    display:flex;
-    justify-content: center;
-    align-items: center;
+#item-8{
+
     grid-column: 2/2;
     grid-row: 4/4;
     text-align: center;
 }
 
-.item9{
-    display:flex;
-    justify-content: center;
-    align-items: center;
+#item-9{
+
     flex-direction: column;
     grid-column: 1/1;
     grid-row: 5/5;
     text-align: center;
 }
 
-.item10{
-    display:flex;
-    justify-content: center;
-    align-items: center;
+#item-10{
+
     flex-direction: column;
     grid-column: 3/3;
     grid-row: 5/5;
@@ -184,3 +213,5 @@ section.sec2{
     }
   }
 
+
+  
